@@ -50,4 +50,21 @@ public class Account {
             System.out.println("  " + entry.getKey() + ": $" + entry.getValue());
         }
     }
+
+    public void sortByAmount() {
+    transactions.sort((a, b) -> Double.compare(b.getAmount(), a.getAmount()));
+    System.out.println("Transactions sorted by amount (highest first).");
+}
+
+public void searchByCategory(String keyword) {
+    System.out.println("\n--- Results for \"" + keyword + "\" ---");
+    boolean found = false;
+    for (Transaction t : transactions) {
+        if (t.getCategory().toLowerCase().contains(keyword.toLowerCase())) {
+            System.out.println(t);
+            found = true;
+        }
+    }
+    if (!found) System.out.println("No transactions found.");
+}
 }
