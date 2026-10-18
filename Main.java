@@ -7,12 +7,14 @@ public class Main {
 
         System.out.println("=== Personal Finance Tracker ===");
 
-        while (true) {
+                while (true) {
             System.out.println("\n1. Add Income");
             System.out.println("2. Add Expense");
             System.out.println("3. View All Transactions");
             System.out.println("4. View Summary");
-            System.out.println("5. Exit");
+            System.out.println("5. Sort by Amount");
+            System.out.println("6. Search by Category");
+            System.out.println("7. Exit");
             System.out.print("Choose: ");
 
             int choice = scanner.nextInt();
@@ -33,6 +35,13 @@ public class Main {
                 account.printTransactions();
             } else if (choice == 4) {
                 account.printSummary();
+            } else if (choice == 5) {
+                account.sortByAmount();
+                account.printTransactions();
+            } else if (choice == 6) {
+                System.out.print("Enter category keyword: ");
+                String keyword = scanner.nextLine();
+                account.searchByCategory(keyword);
             } else {
                 System.out.println("Goodbye!");
                 break;
